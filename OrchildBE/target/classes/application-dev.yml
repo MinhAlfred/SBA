@@ -1,0 +1,38 @@
+api:
+  prefix: /api/v1
+
+jwt:
+  secret: bXlTZWNyZXRfTWluaCBWbyBRdWFuZ18yMDI1
+  expiration: 4320000 #12 hours
+
+spring:
+  application:
+    name: orchidbe
+  ai:
+    ollama:
+      chat:
+        model: llama3:latest
+      embedding:
+        enabled: true
+        options:
+          model: llama3:latest
+      base-url: http://localhost:11434
+
+
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;databaseName=orchid;trustServerCertificate=true
+    username: sa
+    password: 12345
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+
+
+
